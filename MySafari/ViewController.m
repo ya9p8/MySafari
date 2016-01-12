@@ -10,7 +10,7 @@
 
 @interface ViewController () <UIWebViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-//@property (weak, nonatomic) IBOutlet UITextField *urlTextField;
+@property (weak, nonatomic) IBOutlet UITextField *urlTextField;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UIButton *forwardButton;
@@ -33,7 +33,8 @@
     if([textField.text containsString:@"http://"]){
     [self urlDisplayed:textField.text];
     }else{
-        
+        NSString* appendedString = [NSString stringWithFormat:@"http://%@", textField.text];
+         [self urlDisplayed:appendedString];
     }
     return true;
 }
@@ -71,6 +72,15 @@
 
 - (IBAction)onReloadButtonPressed:(id)sender {
     [self.webView reload];
+}
+
+- (IBAction)comingSoonButtonPressed:(id)sender {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Coming Soon!" message:@"NEW CHANGES COMING SOON!" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okButton = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    
+    [alert addAction:okButton];
+    [self presentViewController:alert animated:true completion:nil];
+    
 }
 
 @end
