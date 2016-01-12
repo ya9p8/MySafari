@@ -10,7 +10,7 @@
 
 @interface ViewController () <UIWebViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (weak, nonatomic) IBOutlet UITextField *urlTextField;
+//@property (weak, nonatomic) IBOutlet UITextField *urlTextField;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end
@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self urlDisplayed:@"http://google.com"];
+    [self urlDisplayed:@"http://www.google.com"];
 }
 -(void) urlDisplayed:(NSString*)string{
     NSURL *webSite = [NSURL URLWithString:string];
@@ -40,6 +40,13 @@
     [self.spinner stopAnimating];
     self.spinner.hidden = true;
 }
+- (IBAction)onBackButtonPressed:(id)sender {
+    
+    [self.webView goBack];
+}
 
+- (IBAction)onForwardButtonPressed:(id)sender {
+    [self.webView goForward];
+}
 
 @end

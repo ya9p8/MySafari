@@ -20,10 +20,51 @@
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfv-OG-wdK">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="46" width="400" height="474"/>
+                                </variation>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="p4Q-EE-a7K"/>
                                 </connections>
                             </webView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRP-bw-Mam" userLabel="buttonView">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ck2-Ql-ML8">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <state key="normal" title="&lt;"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="16" y="20" width="30" height="30"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="onBackButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rb0-FZ-kW0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8tm-Qi-hZ5">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <state key="normal" title="&gt;"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="61" y="20" width="30" height="30"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="onForwardButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tQb-oO-L0N"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="Ck2-Ql-ML8"/>
+                                        <exclude reference="8tm-Qi-hZ5"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="520" width="400" height="80"/>
+                                    <mask key="subviews">
+                                        <include reference="Ck2-Ql-ML8"/>
+                                        <include reference="8tm-Qi-hZ5"/>
+                                    </mask>
+                                </variation>
+                            </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PRv-rt-f7Q">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -31,6 +72,9 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="143" y="28" width="97" height="30"/>
                                 </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Jrc-Hb-gJZ"/>
+                                </connections>
                             </textField>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="B1s-OG-cF0">
                                 <rect key="frame" x="-10" y="-10" width="20" height="20"/>
@@ -41,42 +85,25 @@
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="qfv-OG-wdK" secondAttribute="trailing" id="Mnu-Pe-kzK"/>
-                            <constraint firstItem="qfv-OG-wdK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VYE-2a-nM1"/>
-                            <constraint firstAttribute="bottom" secondItem="qfv-OG-wdK" secondAttribute="bottom" id="c6w-w4-aPg"/>
-                            <constraint firstItem="qfv-OG-wdK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="mUx-uY-r7C"/>
-                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="qfv-OG-wdK"/>
+                                <exclude reference="aRP-bw-Mam"/>
                                 <exclude reference="PRv-rt-f7Q"/>
                                 <exclude reference="B1s-OG-cF0"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="Mnu-Pe-kzK"/>
-                                <exclude reference="VYE-2a-nM1"/>
-                                <exclude reference="c6w-w4-aPg"/>
-                                <exclude reference="mUx-uY-r7C"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="qfv-OG-wdK"/>
+                                <include reference="aRP-bw-Mam"/>
                                 <include reference="PRv-rt-f7Q"/>
                                 <include reference="B1s-OG-cF0"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="Mnu-Pe-kzK"/>
-                                <include reference="VYE-2a-nM1"/>
-                                <include reference="c6w-w4-aPg"/>
-                                <include reference="mUx-uY-r7C"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="spinner" destination="B1s-OG-cF0" id="4e1-En-i5a"/>
-                        <outlet property="urlTextField" destination="PRv-rt-f7Q" id="uCw-Dl-aZG"/>
                         <outlet property="webView" destination="qfv-OG-wdK" id="EXW-ik-uOI"/>
                     </connections>
                 </viewController>
