@@ -30,16 +30,6 @@
                                             <action selector="onForwardButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tQb-oO-L0N"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTD-ta-PNR">
-                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <state key="normal" title="Stop"/>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="125" y="5" width="32" height="30"/>
-                                        </variation>
-                                        <connections>
-                                            <action selector="onStopLoadingButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SwJ-6P-qEx"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6Y-ci-WHj">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <state key="normal" title="Reload"/>
@@ -64,30 +54,40 @@
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <state key="normal" title="+"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="-77" y="0.0" width="85" height="81"/>
+                                            <rect key="frame" x="310" y="8" width="27" height="30"/>
                                         </variation>
                                         <connections>
                                             <action selector="comingSoonButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZoP-md-h7B"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTD-ta-PNR">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <state key="normal" title="Stop"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="125" y="5" width="32" height="30"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="onStopLoadingButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SwJ-6P-qEx"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="8tm-Qi-hZ5"/>
-                                        <exclude reference="GTD-ta-PNR"/>
                                         <exclude reference="g6Y-ci-WHj"/>
                                         <exclude reference="Ck2-Ql-ML8"/>
                                         <exclude reference="UXt-ul-HC7"/>
+                                        <exclude reference="GTD-ta-PNR"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="540" width="400" height="60"/>
                                     <mask key="subviews">
                                         <include reference="8tm-Qi-hZ5"/>
-                                        <include reference="GTD-ta-PNR"/>
                                         <include reference="g6Y-ci-WHj"/>
                                         <include reference="Ck2-Ql-ML8"/>
                                         <include reference="UXt-ul-HC7"/>
+                                        <include reference="GTD-ta-PNR"/>
                                     </mask>
                                 </variation>
                             </view>
