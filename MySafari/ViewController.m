@@ -12,6 +12,8 @@
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 //@property (weak, nonatomic) IBOutlet UITextField *urlTextField;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UIButton *forwardButton;
 
 @end
 
@@ -28,7 +30,11 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if([textField.text containsString:@"http://"]){
     [self urlDisplayed:textField.text];
+    }else{
+        
+    }
     return true;
 }
 
@@ -39,14 +45,32 @@
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
     [self.spinner stopAnimating];
     self.spinner.hidden = true;
+    if(webView.canGoBack == true){
+        self.backButton.enabled = true;
+    }else{
+        self.backButton.enabled = false;
+    }
+    if(webView.canGoForward == true){
+        self.forwardButton.enabled = true;
+    }else{
+        self.forwardButton.enabled = false;
+    }
 }
+
 - (IBAction)onBackButtonPressed:(id)sender {
-    
-    [self.webView goBack];
+        [self.webView goBack];
 }
 
 - (IBAction)onForwardButtonPressed:(id)sender {
     [self.webView goForward];
+}
+
+- (IBAction)onStopLoadingButtonPressed:(id)sender {
+    [self.webView stopLoading];
+}
+
+- (IBAction)onReloadButtonPressed:(id)sender {
+    [self.webView reload];
 }
 
 @end
