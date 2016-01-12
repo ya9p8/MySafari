@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController () <UIWebViewDelegate, UITextFieldDelegate>
+@interface ViewController () <UIWebViewDelegate, UITextFieldDelegate, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UITextField *urlTextField;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
@@ -22,6 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self urlDisplayed:@"http://www.google.com"];
+    [self.webView.scrollView setDelegate:self];
+    
 }
 -(void) urlDisplayed:(NSString*)string{
     NSURL *webSite = [NSURL URLWithString:string];
@@ -56,6 +58,10 @@
     }else{
         self.forwardButton.enabled = false;
     }
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSLog(@"%f", scrollView.contentOffset.y);
 }
 
 - (IBAction)onBackButtonPressed:(id)sender {
