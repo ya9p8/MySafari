@@ -299,6 +299,7 @@
 				DB161D371C459AAD00D5FB5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

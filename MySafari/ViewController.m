@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UIButton *forwardButton;
+@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 
 @end
 
@@ -22,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self urlDisplayed:@"http://www.google.com"];
-    [self.webView.scrollView setDelegate:self];
+    self.webView.scrollView.delegate = self;
     
 }
 -(void) urlDisplayed:(NSString*)string{
@@ -58,11 +59,26 @@
     }else{
         self.forwardButton.enabled = false;
     }
+    self.urlTextField.text = self.webView.request.URL.absoluteString;
+    self.navigationBar.topItem.title = self.webView.request.URL.host;
+    [self.urlTextField setHidden:false];
 }
 
+
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    NSLog(@"%f", scrollView.contentOffset.y);
+    //NSLog(@"%f", scrollView.contentOffset.y);
+    [self.urlTextField setHidden:true];
 }
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self.urlTextField setHidden:false];
+}
+
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    [self.urlTextField setHidden:false];
+}
+
 
 - (IBAction)onBackButtonPressed:(id)sender {
         [self.webView goBack];
@@ -88,5 +104,10 @@
     [self presentViewController:alert animated:true completion:nil];
     
 }
+
+- (IBAction)clearTextField:(id)sender {
+    self.urlTextField.text = nil;
+}
+
 
 @end

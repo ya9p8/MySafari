@@ -17,6 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfv-OG-wdK">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="p4Q-EE-a7K"/>
+                                </connections>
+                            </webView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRP-bw-Mam" userLabel="buttonView">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
@@ -24,7 +31,7 @@
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <state key="normal" title="&gt;"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="61" y="0.0" width="30" height="30"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                         </variation>
                                         <connections>
                                             <action selector="onForwardButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tQb-oO-L0N"/>
@@ -34,7 +41,7 @@
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <state key="normal" title="Reload"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="207" y="5" width="47" height="30"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="47" height="30"/>
                                         </variation>
                                         <connections>
                                             <action selector="onReloadButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IS4-r7-9py"/>
@@ -44,30 +51,40 @@
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <state key="normal" title="&lt;"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="16" y="0.0" width="30" height="30"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                         </variation>
                                         <connections>
                                             <action selector="onBackButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rb0-FZ-kW0"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXt-ul-HC7">
-                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <state key="normal" title="+"/>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="310" y="8" width="27" height="30"/>
-                                        </variation>
-                                        <connections>
-                                            <action selector="comingSoonButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZoP-md-h7B"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTD-ta-PNR">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <state key="normal" title="Stop"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="125" y="5" width="32" height="30"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="32" height="30"/>
                                         </variation>
                                         <connections>
                                             <action selector="onStopLoadingButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SwJ-6P-qEx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXt-ul-HC7">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <state key="normal" title="+"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="comingSoonButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZoP-md-h7B"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCy-Fr-pez">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <state key="normal" title="Clear"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="0.0" width="36" height="30"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="clearTextField:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wzG-bc-Ymc"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -76,78 +93,141 @@
                                         <exclude reference="8tm-Qi-hZ5"/>
                                         <exclude reference="g6Y-ci-WHj"/>
                                         <exclude reference="Ck2-Ql-ML8"/>
-                                        <exclude reference="UXt-ul-HC7"/>
                                         <exclude reference="GTD-ta-PNR"/>
+                                        <exclude reference="UXt-ul-HC7"/>
+                                        <exclude reference="tCy-Fr-pez"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="540" width="400" height="60"/>
+                                    <rect key="frame" x="31" y="-22" width="92" height="46"/>
                                     <mask key="subviews">
                                         <include reference="8tm-Qi-hZ5"/>
                                         <include reference="g6Y-ci-WHj"/>
                                         <include reference="Ck2-Ql-ML8"/>
-                                        <include reference="UXt-ul-HC7"/>
                                         <include reference="GTD-ta-PNR"/>
+                                        <include reference="UXt-ul-HC7"/>
+                                        <include reference="tCy-Fr-pez"/>
                                     </mask>
                                 </variation>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PRv-rt-f7Q">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="http://" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PRv-rt-f7Q">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1wJ-8I-RlX"/>
+                                    <constraint firstAttribute="width" constant="360" id="FzF-8n-lTB"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="143" y="28" width="97" height="30"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="1wJ-8I-RlX"/>
+                                        <exclude reference="FzF-8n-lTB"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="1wJ-8I-RlX"/>
+                                        <include reference="FzF-8n-lTB"/>
+                                    </mask>
                                 </variation>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Jrc-Hb-gJZ"/>
                                 </connections>
                             </textField>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OWL-0p-qOX">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="eok-xC-xah"/>
+                                </items>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="44"/>
+                                </variation>
+                            </navigationBar>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="B1s-OG-cF0">
                                 <rect key="frame" x="-10" y="-10" width="20" height="20"/>
                                 <color key="color" red="0.99919462199999998" green="0.3729875486" blue="0.34460306000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="182" y="281" width="37" height="37"/>
-                                </variation>
                             </activityIndicatorView>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfv-OG-wdK">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="63" width="400" height="474"/>
-                                </variation>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="p4Q-EE-a7K"/>
-                                </connections>
-                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="qfv-OG-wdK" secondAttribute="trailing" id="5p9-Je-xiQ"/>
+                            <constraint firstItem="qfv-OG-wdK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7Wn-tC-JUM"/>
+                            <constraint firstItem="qfv-OG-wdK" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="J2X-HQ-zcl"/>
+                            <constraint firstAttribute="bottom" secondItem="qfv-OG-wdK" secondAttribute="bottom" id="LWL-sY-R6S"/>
+                            <constraint firstItem="qfv-OG-wdK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="OBY-9T-za9">
+                                <variation key="widthClass=compact" constant="95"/>
+                            </constraint>
+                            <constraint firstItem="B1s-OG-cF0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="R7f-Br-9r0"/>
+                            <constraint firstItem="PRv-rt-f7Q" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="VDE-ne-1Vi"/>
+                            <constraint firstItem="PRv-rt-f7Q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="W6D-zN-Enr"/>
+                            <constraint firstAttribute="trailing" secondItem="qfv-OG-wdK" secondAttribute="trailing" id="kbe-kC-YeW"/>
+                            <constraint firstItem="B1s-OG-cF0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qkI-l0-8Tr"/>
+                            <constraint firstItem="qfv-OG-wdK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rHp-xI-Kv1"/>
+                            <constraint firstAttribute="trailing" secondItem="PRv-rt-f7Q" secondAttribute="trailing" constant="20" id="sQ6-Eo-6g1"/>
+                            <constraint firstItem="qfv-OG-wdK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="uLs-6O-Ahb"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="qfv-OG-wdK"/>
                                 <exclude reference="aRP-bw-Mam"/>
                                 <exclude reference="PRv-rt-f7Q"/>
+                                <exclude reference="OWL-0p-qOX"/>
                                 <exclude reference="B1s-OG-cF0"/>
-                                <exclude reference="qfv-OG-wdK"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="5p9-Je-xiQ"/>
+                                <exclude reference="7Wn-tC-JUM"/>
+                                <exclude reference="J2X-HQ-zcl"/>
+                                <exclude reference="LWL-sY-R6S"/>
+                                <exclude reference="OBY-9T-za9"/>
+                                <exclude reference="kbe-kC-YeW"/>
+                                <exclude reference="rHp-xI-Kv1"/>
+                                <exclude reference="uLs-6O-Ahb"/>
+                                <exclude reference="VDE-ne-1Vi"/>
+                                <exclude reference="W6D-zN-Enr"/>
+                                <exclude reference="sQ6-Eo-6g1"/>
+                                <exclude reference="R7f-Br-9r0"/>
+                                <exclude reference="qkI-l0-8Tr"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
+                                <include reference="qfv-OG-wdK"/>
                                 <include reference="aRP-bw-Mam"/>
                                 <include reference="PRv-rt-f7Q"/>
+                                <include reference="OWL-0p-qOX"/>
                                 <include reference="B1s-OG-cF0"/>
-                                <include reference="qfv-OG-wdK"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="5p9-Je-xiQ"/>
+                                <include reference="7Wn-tC-JUM"/>
+                                <include reference="J2X-HQ-zcl"/>
+                                <include reference="LWL-sY-R6S"/>
+                                <exclude reference="OBY-9T-za9"/>
+                                <exclude reference="kbe-kC-YeW"/>
+                                <exclude reference="rHp-xI-Kv1"/>
+                                <exclude reference="uLs-6O-Ahb"/>
+                                <include reference="VDE-ne-1Vi"/>
+                                <include reference="W6D-zN-Enr"/>
+                                <include reference="sQ6-Eo-6g1"/>
+                                <include reference="R7f-Br-9r0"/>
+                                <include reference="qkI-l0-8Tr"/>
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="0I3-Vj-OYX"/>
                     <connections>
                         <outlet property="backButton" destination="Ck2-Ql-ML8" id="Vc5-84-pE0"/>
                         <outlet property="forwardButton" destination="8tm-Qi-hZ5" id="4f6-LM-FKp"/>
+                        <outlet property="navigationBar" destination="OWL-0p-qOX" id="tGP-Hn-v8S"/>
                         <outlet property="spinner" destination="B1s-OG-cF0" id="4e1-En-i5a"/>
+                        <outlet property="urlTextField" destination="PRv-rt-f7Q" id="VTj-vw-wRF"/>
                         <outlet property="webView" destination="qfv-OG-wdK" id="EXW-ik-uOI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="244.5" y="302"/>
+            <point key="canvasLocation" x="1162.5" y="302"/>
         </scene>
     </scenes>
 </document>
