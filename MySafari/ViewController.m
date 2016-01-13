@@ -65,8 +65,8 @@
 }
 
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    //NSLog(@"%f", scrollView.contentOffset.y);
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
     [self.urlTextField setHidden:true];
 }
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
